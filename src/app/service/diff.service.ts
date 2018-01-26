@@ -8,7 +8,6 @@ export class DiffService {
   comparatorClass: string;
   compared: string;
   comparedClass: string;
-  iteratorContent: any;
   results: any[];
 
   generateComparison(diff: string, code: number) {
@@ -202,17 +201,4 @@ export class DiffService {
     return line;
   }
 
-  private resetIterator() {
-    this.iteratorContent = {'a1': '', 'a2': '', 'line1': '', 'line2': '', 'j': 1, 'k': 1, 'i1': '', 'i2': ''};
-  }
-
-  private updateIndexes(a1: any, a2: any, value1: any, value2: any, j: any, k: any, i1: any, i2: any, id?: number) {
-    (id) && ((id === 0) ? (this.comparatorClass = 'added') : (this.comparedClass = 'added'));
-    this.iteratorContent = {
-      'a1': a1, 'a2': a2,
-      'line1': value1, 'line2': value2,
-      'j': j, 'k': k,
-      'i1': i1, 'i2': i2,
-    };
-  }
 }
